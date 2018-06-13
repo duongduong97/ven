@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Coderthemes">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <title>@ViewBag.Title</title>
+    <link href="~/Assets/plugins/custombox/css/custombox.css" rel="stylesheet">
+    <link href="~/Assets/plugins/summernote/summernote.css" rel="stylesheet" />
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="~/Assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="~/Assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="~/Assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="~/Assets/css/btn_top.css" rel="stylesheet" />
+    <!-- custom css -->
+    <link href="~/Assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <script src="~/Assets/js/modernizr.min.js"></script>
+    <!-- Custom Theme Style -->
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body ng-app="venApp">
+    <!-- Begin page -->
+    <div class="jumbotron text-center">
+        @Html.Partial("_TopBarPartial")
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                @Html.Partial("_LeftSidebarPartial")
+            </div>
+            <div class="col-sm-6">
+                @RenderBody()
+            </div>
+
+            <div class="col-sm-2">
+                @Html.Partial("_RightSidebarPartial")
+            </div>
+            <div class="col-sm-2">
+                @Html.Partial("_ChatBoxPartial")
+            </div>
+        </div>
+    </div>
+
+    <!-- END wrapper -->
+    <script type="text/javascript">
+        var resizefunc = [];
+    </script>
+    <!-- jQuery  -->
+    <script src="~/Assets/js/jquery.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/detect.js"></script>
+    <script src="~/Assets/js/fastclick.js"></script>
+    <script src="~/Assets/js/jquery.slimscroll.js"></script>
+    <script src="~/Assets/js/jquery.blockUI.js"></script>
+    <script src="~/Assets/js/waves.js"></script>
+    <script src="~/Assets/js/wow.min.js"></script>
+    <script src="~/Assets/js/jquery.core.js"></script>
+    <script src="~/Assets/js/jquery.app.js"></script>
+    <script src="~/Assets/plugins/summernote/summernote.min.js"></script>
+    <!-- jQuery -->
+    <!-- FastClick -->
+    <!-- Custom Theme Scripts -->
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/angular-route.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            $('.summernote').summernote({
+                height: 300,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: false                 // set focus to editable area after initializing summernote
+            });
+            $('.inline-editor').summernote({
+                airMode: true
+            });
+        });
+    </script>
+    <script src="~/App/modules/akFileUploader.js"></script>
+    <script src="~/App/app.ven.js"></script>
+    <script src="~/App/services/banTinService.js"></script>
+    <script src="~/App/services/binhLuanService.js"></script>
+    <script src="~/App/services/thanhVienService.js"></script>
+    <script src="~/App/controllers/trangChuCtrl.js"></script>
+    <script src="~/App/controllers/banTinCtrl.js"></script>
+    <script src="~/App/controllers/binhLuanCtrl.js"></script>
+    <script src="~/App/controllers/tuKhoaCtrl.js"></script>
+    <script src="~/Assets/js/custom.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

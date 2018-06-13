@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VenDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VenDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Sp_ThanhViens_Login" ReturnType="Collection(Boolean)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="BanTinAnhs" EntityType="VenDatabaseModel.BanTinAnh" />
+    <EntitySet Name="BanTins" EntityType="VenDatabaseModel.BanTin" />
+    <EntitySet Name="BanTinTuKhoas" EntityType="VenDatabaseModel.BanTinTuKhoa" />
+    <EntitySet Name="BinhLuans" EntityType="VenDatabaseModel.BinhLuan" />
+    <EntitySet Name="ChiaSes" EntityType="VenDatabaseModel.ChiaS" />
+    <EntitySet Name="DiaDiems" EntityType="VenDatabaseModel.DiaDiem" />
+    <EntitySet Name="KetBans" EntityType="VenDatabaseModel.KetBan" />
+    <EntitySet Name="Likes" EntityType="VenDatabaseModel.Like" />
+    <EntitySet Name="Nhoms" EntityType="VenDatabaseModel.Nhom" />
+    <EntitySet Name="ThanhVienNhoms" EntityType="VenDatabaseModel.ThanhVienNhom" />
+    <EntitySet Name="ThanhViens" EntityType="VenDatabaseModel.ThanhVien" />
+    <EntitySet Name="ThongBaos" EntityType="VenDatabaseModel.ThongBao" />
+    <EntitySet Name="ThuMuc_Anh_" EntityType="VenDatabaseModel.ThuMuc_Anh_" />
+    <EntitySet Name="TuKhoas" EntityType="VenDatabaseModel.TuKhoa" />
+    <AssociationSet Name="FK_dbo_BanTinAnhs_dbo_BanTins_BanTinId" Association="VenDatabaseModel.FK_dbo_BanTinAnhs_dbo_BanTins_BanTinId">
+      <End Role="BanTin" EntitySet="BanTins" />
+      <End Role="BanTinAnh" EntitySet="BanTinAnhs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BanTinTuKhoa_BanTins" Association="VenDatabaseModel.FK_BanTinTuKhoa_BanTins">
+      <End Role="BanTin" EntitySet="BanTins" />
+      <End Role="BanTinTuKhoa" EntitySet="BanTinTuKhoas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BanTins_dbo_DiaDiems_DiaDiemId" Association="VenDatabaseModel.FK_dbo_BanTins_dbo_DiaDiems_DiaDiemId">
+      <End Role="DiaDiem" EntitySet="DiaDiems" />
+      <End Role="BanTin" EntitySet="BanTins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BanTins_dbo_ThanhViens_ThanhVienId" Association="VenDatabaseModel.FK_dbo_BanTins_dbo_ThanhViens_ThanhVienId">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="BanTin" EntitySet="BanTins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BinhLuans_dbo_BanTins_BanTinId" Association="VenDatabaseModel.FK_dbo_BinhLuans_dbo_BanTins_BanTinId">
+      <End Role="BanTin" EntitySet="BanTins" />
+      <End Role="BinhLuan" EntitySet="BinhLuans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChiaSes_dbo_BanTins_BanTinId" Association="VenDatabaseModel.FK_dbo_ChiaSes_dbo_BanTins_BanTinId">
+      <End Role="BanTin" EntitySet="BanTins" />
+      <End Role="ChiaS" EntitySet="ChiaSes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Likes_dbo_BanTins_BanTinId" Association="VenDatabaseModel.FK_dbo_Likes_dbo_BanTins_BanTinId">
+      <End Role="BanTin" EntitySet="BanTins" />
+      <End Role="Like" EntitySet="Likes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BanTinTuKhoa_TuKhoas" Association="VenDatabaseModel.FK_BanTinTuKhoa_TuKhoas">
+      <End Role="TuKhoa" EntitySet="TuKhoas" />
+      <End Role="BanTinTuKhoa" EntitySet="BanTinTuKhoas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_KetBans_dbo_ThanhViens_ThanhVienId" Association="VenDatabaseModel.FK_dbo_KetBans_dbo_ThanhViens_ThanhVienId">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="KetBan" EntitySet="KetBans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Nhoms_dbo_ThongBaos_ThongBaoId" Association="VenDatabaseModel.FK_dbo_Nhoms_dbo_ThongBaos_ThongBaoId">
+      <End Role="ThongBao" EntitySet="ThongBaos" />
+      <End Role="Nhom" EntitySet="Nhoms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ThanhVienNhoms_dbo_Nhoms_NhomId" Association="VenDatabaseModel.FK_dbo_ThanhVienNhoms_dbo_Nhoms_NhomId">
+      <End Role="Nhom" EntitySet="Nhoms" />
+      <End Role="ThanhVienNhom" EntitySet="ThanhVienNhoms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ThongBaos_dbo_ThanhViens_ThanhVienId" Association="VenDatabaseModel.FK_dbo_ThongBaos_dbo_ThanhViens_ThanhVienId">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="ThongBao" EntitySet="ThongBaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ThuMuc_Anh__dbo_ThanhViens_ThanhVienId" Association="VenDatabaseModel.FK_dbo_ThuMuc_Anh__dbo_ThanhViens_ThanhVienId">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="ThuMuc_Anh_" EntitySet="ThuMuc_Anh_" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BanTinAnh">
+    <Key>
+      <PropertyRef Name="IdAnh" />
+    </Key>
+    <Property Name="IdAnh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BanTinId" Type="Int32" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BanTin" Relationship="VenDatabaseModel.FK_dbo_BanTinAnhs_dbo_BanTins_BanTinId" FromRole="BanTinAnh" ToRole="BanTin" />
+  </EntityType>
+  <EntityType Name="BanTin">
+    <Key>
+      <PropertyRef Name="BanTinId" />
+    </Key>
+    <Property Name="BanTinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="The" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiaDiemId" Type="Int32" />
+    <Property Name="QuyenRiengTu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BanTinAnhs" Relationship="VenDatabaseModel.FK_dbo_BanTinAnhs_dbo_BanTins_BanTinId" FromRole="BanTin" ToRole="BanTinAnh" />
+    <NavigationProperty Name="BanTinTuKhoas" Relationship="VenDatabaseModel.FK_BanTinTuKhoa_BanTins" FromRole="BanTin" ToRole="BanTinTuKhoa" />
+    <NavigationProperty Name="DiaDiem" Relationship="VenDatabaseModel.FK_dbo_BanTins_dbo_DiaDiems_DiaDiemId" FromRole="BanTin" ToRole="DiaDiem" />
+    <NavigationProperty Name="ThanhVien" Relationship="VenDatabaseModel.FK_dbo_BanTins_dbo_ThanhViens_ThanhVienId" FromRole="BanTin" ToRole="ThanhVien" />
+    <NavigationProperty Name="BinhLuans" Relationship="VenDatabaseModel.FK_dbo_BinhLuans_dbo_BanTins_BanTinId" FromRole="BanTin" ToRole="BinhLuan" />
+    <NavigationProperty Name="ChiaSes" Relationship="VenDatabaseModel.FK_dbo_ChiaSes_dbo_BanTins_BanTinId" FromRole="BanTin" ToRole="ChiaS" />
+    <NavigationProperty Name="Likes" Relationship="VenDatabaseModel.FK_dbo_Likes_dbo_BanTins_BanTinId" FromRole="BanTin" ToRole="Like" />
+  </EntityType>
+  <EntityType Name="BanTinTuKhoa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TuKhoaId" Type="Int32" Nullable="false" />
+    <Property Name="BanTinId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BanTin" Relationship="VenDatabaseModel.FK_BanTinTuKhoa_BanTins" FromRole="BanTinTuKhoa" ToRole="BanTin" />
+    <NavigationProperty Name="TuKhoa" Relationship="VenDatabaseModel.FK_BanTinTuKhoa_TuKhoas" FromRole="BanTinTuKhoa" ToRole="TuKhoa" />
+  </EntityType>
+  <EntityType Name="BinhLuan">
+    <Key>
+      <PropertyRef Name="BinhLuanId" />
+    </Key>
+    <Property Name="BinhLuanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BanTinId" Type="Int32" Nullable="false" />
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" />
+    <Property Name="NoiDung" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnhId" Type="Int32" />
+    <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DiaDiemId" Type="Int32" />
+    <NavigationProperty Name="BanTin" Relationship="VenDatabaseModel.FK_dbo_BinhLuans_dbo_BanTins_BanTinId" FromRole="BinhLuan" ToRole="BanTin" />
+  </EntityType>
+  <EntityType Name="ChiaS">
+    <Key>
+      <PropertyRef Name="ChiaSeId" />
+    </Key>
+    <Property Name="ChiaSeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BanTinId" Type="Int32" Nullable="false" />
+    <Property Name="HinhThuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="QuyenRiengTu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiaDiem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BanTin" Relationship="VenDatabaseModel.FK_dbo_ChiaSes_dbo_BanTins_BanTinId" FromRole="ChiaS" ToRole="BanTin" />
+  </EntityType>
+  <EntityType Name="DiaDiem">
+    <Key>
+      <PropertyRef Name="DiaDiemId" />
+    </Key>
+    <Property Name="DiaDiemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TheDiaLy" Type="Int32" Nullable="false" />
+    <Property Name="MaDiaLy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BanTins" Relationship="VenDatabaseModel.FK_dbo_BanTins_dbo_DiaDiems_DiaDiemId" FromRole="DiaDiem" ToRole="BanTin" />
+  </EntityType>
+  <EntityType Name="KetBan">
+    <Key>
+      <PropertyRef Name="KetBanId" />
+    </Key>
+    <Property Name="KetBanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGianKetBan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianDongY" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianHuyKetBan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TrangThai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ThanhVien" Relationship="VenDatabaseModel.FK_dbo_KetBans_dbo_ThanhViens_ThanhVienId" FromRole="KetBan" ToRole="ThanhVien" />
+  </EntityType>
+  <EntityType Name="Like">
+    <Key>
+      <PropertyRef Name="LikeId" />
+    </Key>
+    <Property Name="LikeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BanTinId" Type="Int32" Nullable="false" />
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="BanTin" Relationship="VenDatabaseModel.FK_dbo_Likes_dbo_BanTins_BanTinId" FromRole="Like" ToRole="BanTin" />
+  </EntityType>
+  <EntityType Name="Nhom">
+    <Key>
+      <PropertyRef Name="NhomId" />
+    </Key>
+    <Property Name="NhomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhThuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGianThamGia" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianXacNhan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianRoi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThongBaoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ThongBao" Relationship="VenDatabaseModel.FK_dbo_Nhoms_dbo_ThongBaos_ThongBaoId" FromRole="Nhom" ToRole="ThongBao" />
+    <NavigationProperty Name="ThanhVienNhoms" Relationship="VenDatabaseModel.FK_dbo_ThanhVienNhoms_dbo_Nhoms_NhomId" FromRole="Nhom" ToRole="ThanhVienNhom" />
+  </EntityType>
+  <EntityType Name="ThanhVienNhom">
+    <Key>
+      <PropertyRef Name="ThanhVienId" />
+    </Key>
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhomId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGianXacNhan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianXoa" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TrangThai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianYeuCauThamGia" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Nhom" Relationship="VenDatabaseModel.FK_dbo_ThanhVienNhoms_dbo_Nhoms_NhomId" FromRole="ThanhVienNhom" ToRole="Nhom" />
+  </EntityType>
+  <EntityType Name="ThanhVien">
+    <Key>
+      <PropertyRef Name="ThanhVienId" />
+    </Key>
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="7" />
+    <Property Name="GioiTinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BanTins" Relationship="VenDatabaseModel.FK_dbo_BanTins_dbo_ThanhViens_ThanhVienId" FromRole="ThanhVien" ToRole="BanTin" />
+    <NavigationProperty Name="KetBans" Relationship="VenDatabaseModel.FK_dbo_KetBans_dbo_ThanhViens_ThanhVienId" FromRole="ThanhVien" ToRole="KetBan" />
+    <NavigationProperty Name="ThongBaos" Relationship="VenDatabaseModel.FK_dbo_ThongBaos_dbo_ThanhViens_ThanhVienId" FromRole="ThanhVien" ToRole="ThongBao" />
+    <NavigationProperty Name="ThuMuc_Anh_" Relationship="VenDatabaseModel.FK_dbo_ThuMuc_Anh__dbo_ThanhViens_ThanhVienId" FromRole="ThanhVien" ToRole="ThuMuc_Anh_" />
+  </EntityType>
+  <EntityType Name="ThongBao">
+    <Key>
+      <PropertyRef Name="ThongBaoId" />
+    </Key>
+    <Property Name="ThongBaoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianDaXem" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BinhLuanId" Type="Int32" Nullable="false" />
+    <Property Name="BanTinId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nhoms" Relationship="VenDatabaseModel.FK_dbo_Nhoms_dbo_ThongBaos_ThongBaoId" FromRole="ThongBao" ToRole="Nhom" />
+    <NavigationProperty Name="ThanhVien" Relationship="VenDatabaseModel.FK_dbo_ThongBaos_dbo_ThanhViens_ThanhVienId" FromRole="ThongBao" ToRole="ThanhVien" />
+  </EntityType>
+  <EntityType Name="ThuMuc_Anh_">
+    <Key>
+      <PropertyRef Name="TMAnhId" />
+    </Key>
+    <Property Name="TMAnhId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenThuMuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThanhVienId" Type="Int32" Nullable="false" />
+    <Property Name="KieuDuLieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KichThuoc" Type="Int32" Nullable="false" />
+    <Property Name="ThuTu" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThuMuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ThanhVien" Relationship="VenDatabaseModel.FK_dbo_ThuMuc_Anh__dbo_ThanhViens_ThanhVienId" FromRole="ThuMuc_Anh_" ToRole="ThanhVien" />
+  </EntityType>
+  <EntityType Name="TuKhoa">
+    <Key>
+      <PropertyRef Name="TuKhoaId" />
+    </Key>
+    <Property Name="TuKhoaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountView" Type="Int32" />
+    <NavigationProperty Name="BanTinTuKhoas" Relationship="VenDatabaseModel.FK_BanTinTuKhoa_TuKhoas" FromRole="TuKhoa" ToRole="BanTinTuKhoa" />
+  </EntityType>
+  <Association Name="FK_dbo_BanTinAnhs_dbo_BanTins_BanTinId">
+    <End Type="VenDatabaseModel.BanTin" Role="BanTin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.BanTinAnh" Role="BanTinAnh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BanTin">
+        <PropertyRef Name="BanTinId" />
+      </Principal>
+      <Dependent Role="BanTinAnh">
+        <PropertyRef Name="BanTinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BanTinTuKhoa_BanTins">
+    <End Type="VenDatabaseModel.BanTin" Role="BanTin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.BanTinTuKhoa" Role="BanTinTuKhoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BanTin">
+        <PropertyRef Name="BanTinId" />
+      </Principal>
+      <Dependent Role="BanTinTuKhoa">
+        <PropertyRef Name="BanTinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BanTins_dbo_DiaDiems_DiaDiemId">
+    <End Type="VenDatabaseModel.DiaDiem" Role="DiaDiem" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.BanTin" Role="BanTin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="DiaDiemId" />
+      </Principal>
+      <Dependent Role="BanTin">
+        <PropertyRef Name="DiaDiemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BanTins_dbo_ThanhViens_ThanhVienId">
+    <End Type="VenDatabaseModel.ThanhVien" Role="ThanhVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.BanTin" Role="BanTin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="ThanhVienId" />
+      </Principal>
+      <Dependent Role="BanTin">
+        <PropertyRef Name="ThanhVienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BinhLuans_dbo_BanTins_BanTinId">
+    <End Type="VenDatabaseModel.BanTin" Role="BanTin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.BinhLuan" Role="BinhLuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BanTin">
+        <PropertyRef Name="BanTinId" />
+      </Principal>
+      <Dependent Role="BinhLuan">
+        <PropertyRef Name="BanTinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChiaSes_dbo_BanTins_BanTinId">
+    <End Type="VenDatabaseModel.BanTin" Role="BanTin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.ChiaS" Role="ChiaS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BanTin">
+        <PropertyRef Name="BanTinId" />
+      </Principal>
+      <Dependent Role="ChiaS">
+        <PropertyRef Name="BanTinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Likes_dbo_BanTins_BanTinId">
+    <End Type="VenDatabaseModel.BanTin" Role="BanTin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.Like" Role="Like" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BanTin">
+        <PropertyRef Name="BanTinId" />
+      </Principal>
+      <Dependent Role="Like">
+        <PropertyRef Name="BanTinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BanTinTuKhoa_TuKhoas">
+    <End Type="VenDatabaseModel.TuKhoa" Role="TuKhoa" Multiplicity="1" />
+    <End Type="VenDatabaseModel.BanTinTuKhoa" Role="BanTinTuKhoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuKhoa">
+        <PropertyRef Name="TuKhoaId" />
+      </Principal>
+      <Dependent Role="BanTinTuKhoa">
+        <PropertyRef Name="TuKhoaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_KetBans_dbo_ThanhViens_ThanhVienId">
+    <End Type="VenDatabaseModel.ThanhVien" Role="ThanhVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.KetBan" Role="KetBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="ThanhVienId" />
+      </Principal>
+      <Dependent Role="KetBan">
+        <PropertyRef Name="ThanhVienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Nhoms_dbo_ThongBaos_ThongBaoId">
+    <End Type="VenDatabaseModel.ThongBao" Role="ThongBao" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.Nhom" Role="Nhom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongBao">
+        <PropertyRef Name="ThongBaoId" />
+      </Principal>
+      <Dependent Role="Nhom">
+        <PropertyRef Name="ThongBaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ThanhVienNhoms_dbo_Nhoms_NhomId">
+    <End Type="VenDatabaseModel.Nhom" Role="Nhom" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.ThanhVienNhom" Role="ThanhVienNhom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nhom">
+        <PropertyRef Name="NhomId" />
+      </Principal>
+      <Dependent Role="ThanhVienNhom">
+        <PropertyRef Name="NhomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ThongBaos_dbo_ThanhViens_ThanhVienId">
+    <End Type="VenDatabaseModel.ThanhVien" Role="ThanhVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.ThongBao" Role="ThongBao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="ThanhVienId" />
+      </Principal>
+      <Dependent Role="ThongBao">
+        <PropertyRef Name="ThanhVienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ThuMuc_Anh__dbo_ThanhViens_ThanhVienId">
+    <End Type="VenDatabaseModel.ThanhVien" Role="ThanhVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VenDatabaseModel.ThuMuc_Anh_" Role="ThuMuc_Anh_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="ThanhVienId" />
+      </Principal>
+      <Dependent Role="ThuMuc_Anh_">
+        <PropertyRef Name="ThanhVienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

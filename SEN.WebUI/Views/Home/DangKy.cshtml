@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_LayoutLanding.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="top text-center" id="toptext">
+        <b>Đăng Ký</b>
+    </div>
+    <div id="formSignup" style="display:block;" ng-controller="dangKyCtrl">
+        <form novalidate name="f1" class="form" role="form" method="post" action="/Home/DangNhap" accept-charset="UTF-8" id="login-nav" ng-submit="SaveData(ThanhVien)">
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="ThanhVien.FirstName" ng-class="submitted?'ng-dirty':''" required>
+
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" ng-model="ThanhVien.LastName" ng-class="submitted?'ng-dirty':''" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email Address" ng-model="ThanhVien.Email" ng-class="submitted?'ng-dirty':''" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" name="mobile" placeholder="Mobile" ng-model="ThanhVien.Moblie" ng-class="submitted?'ng-dirty':''" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="ThanhVien.Password" ng-class="submitted?'ng-dirty':''" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="ConfirmPassword" placeholder="Confirm Password" onkeyup='check();'  required>
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control"  data-date="" data-date-format="DD MM YYYY" name="NgaySinh" ng-model="ThanhVien.NgaySinh" ng-class="submitted?'ng-dirty':''" required>
+            </div>
+            <div class="form-group">
+                <label class="radio-inline"><input type="radio" name="gioitinh" checked="checked" ng-model="ThanhVien.GioiTinh" value="Nam" required>Nam</label>
+                <label class="radio-inline"><input type="radio" name="gioitinh" ng-model="ThanhVien.GioiTinh" value="Nu" required>Nữ</label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Đăng ký </button>
+            </div>
+        </form>
+    </div>
+    <div class="bottom text-center">
+        <span id="bottomtext"> Đã có tài khoản? </span><a href="/DangNhap" class="btn-link"> <b>Quay lại đăng nhập</b> </a>
+    </div>
+}
+

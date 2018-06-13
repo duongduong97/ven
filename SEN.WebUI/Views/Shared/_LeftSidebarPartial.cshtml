@@ -1,0 +1,53 @@
+﻿<div class="sidebar-inner slimscrollleft">
+    <div class="card-box recommend-follower">
+        <div class="user-details" style="text-align:center;">
+            <div class="aa" style="text-align:center;height:60px;width:auto;">
+                <img src="~/Assets/images/users/avatar-1.jpg" alt="" class="thumb-md img-circle" style="text-align:center;height:50px;width:50px;">
+            </div>
+            <div class="user-info">
+                <a href="#" title="">{{thanhVien.FirstName}} {{thanhVien.LastName}}</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#"><i class=""></i> Cập nhật thông tin</a>
+                    </li>
+                </ul>
+             </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="sidebar-menu">
+            <ul>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-home"></i><span>Trang chủ</span></a>
+                </li>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fa  fa-group (alias)"></i><span>Nhóm</span></a>
+                </li>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="md-contacts"></i><span>Bạn & theo dõi</span></a>
+                </li>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="md-event"></i><span>Sự kiện</span></a>
+                </li>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="md-settings"></i><span>Cài đặt</span></a>
+                </li>
+                <li class="has_sub" id="icon-list-keyword">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="md-list">!</i><span>Từ khóa</span></a>
+                </li>
+                <li class="text-muted menu-title">Danh sách từ khóa</li>
+
+            </ul>
+            <div class="card-box top-keyword">
+                <ul class="list-unstyled">
+                    <li ng-repeat="tk in dsTuKhoaByThanhVien track by $index">
+                        <a href="/#/tukhoa/{{tk.thanhVienId}}">
+                            <span><strong>#</strong>{{ tk.NoiDung }}</span>
+                            <span class="badge">{{ tk.CountView }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

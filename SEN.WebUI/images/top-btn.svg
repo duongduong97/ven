@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="629px" height="629px" viewBox="0 0 629 629" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44 (41411) - http://www.bohemiancoding.com/sketch -->
+    <title>scroll-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="scroll-down" transform="translate(314.500000, 314.500000) scale(1, -1) translate(-314.500000, -314.500000) " fill-rule="nonzero">
+            <path d="M314.510541,629 C488.026857,629 628.686626,488.340231 628.686626,314.823914 C628.686626,141.29588 488.026857,0.636110912 314.510541,0.636110912 C140.994224,0.636110912 0.334455042,141.29588 0.334455042,314.823914 C0.334455042,488.340231 140.994224,629 314.510541,629" id="Fill-17" fill="#8D8D8D"></path>
+            <polygon id="Fill-19" fill="#EDEDED" points="373.777706 338.369544 365.551851 330.776448 320.836949 376.124107 320.836949 246.408709 309.236385 246.408709 309.236385 377.178704 263.466887 330.776448 255.241032 338.369544 314.509369 397.637881"></polygon>
+        </g>
+    </g>
+</svg>
